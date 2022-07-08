@@ -1,0 +1,8 @@
+for f in coni-*; do
+    sede=${f/.csv/}
+    sede=${sede/coni-/}
+    mkdir $sede
+    cut -d, -f2 $f | while read dni; do
+        ln -s $sede $dni
+    done
+done
